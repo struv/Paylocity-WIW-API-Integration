@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When I Work + Paylocity Integration Tutorial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/prism.css">
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <span class="wiw">When I Work</span>
+        <span class="plus">+</span>
+        <span class="paylocity">Paylocity</span>
+      </div>
+      <nav>
+        <ul>
+          <li class="active"><a href="#overview">Overview</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#authentication">Authentication</a></li>
+          <li><a href="#integration">Integration</a></li>
+          <li><a href="#business-value">Business Value</a></li>
+          <li><a href="#implementation">Implementation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Seamless Integration Between When I Work & Paylocity</h1>
+        <p>Eliminate duplicate data entry, reduce payroll errors, and streamline your workforce management with our comprehensive API integration tutorial.</p>
+        <div class="hero-buttons">
+          <a href="#integration" class="btn btn-primary">Explore Integration Examples</a>
+          <a href="#business-value" class="btn btn-secondary">See Business Value</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Integration Overview</h2>
+        <p class="section-description">Learn how to connect When I Work scheduling software with Paylocity payroll systems to create a seamless workflow for your organization.</p>
+      </div>
+
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h3 class="card-title">Shift Synchronization</h3>
+          <p class="card-description">Automatically sync shifts between When I Work and Paylocity to eliminate manual data entry and reduce errors.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h3 class="card-title">Employee Data Sync</h3>
+          <p class="card-description">Keep employee records consistent across both systems with bidirectional synchronization.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3 class="card-title">Time-Off Requests</h3>
+          <p class="card-description">Propagate approved time-off requests from When I Work to Paylocity automatically.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✓</div>
+          <h3 class="card-title">Timesheet Approval</h3>
+          <p class="card-description">Implement approval workflows that ensure only verified timesheets are processed for payroll.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💰</div>
+          <h3 class="card-title">Payroll Processing</h3>
+          <p class="card-description">Use scheduling data to streamline payroll processing and ensure accurate compensation.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3 class="card-title">Compliance Reporting</h3>
+          <p class="card-description">Improve reporting accuracy with consistent data across scheduling and payroll systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">System Architecture</h2>
+        <p class="section-description">A comprehensive look at how the integration between When I Work and Paylocity is structured.</p>
+      </div>
+
+      <div class="diagram-container">
+        <h3 class="diagram-title">Integration Architecture Overview</h3>
+        <img src="assets/integration_architecture.png" alt="When I Work + Paylocity Integration Architecture">
+      </div>
+
+      <h3>Key Components</h3>
+      <ul>
+        <li><strong>API Gateway</strong>: Manages all API requests and provides a unified interface for the integration.</li>
+        <li><strong>Authentication Service</strong>: Handles secure authentication with both When I Work and Paylocity APIs.</li>
+        <li><strong>Sync Service</strong>: Coordinates data synchronization between the two systems.</li>
+        <li><strong>Data Transformer</strong>: Converts data formats between When I Work and Paylocity.</li>
+        <li><strong>Message Queue</strong>: Ensures reliable message delivery and processing.</li>
+        <li><strong>Webhook Handler</strong>: Processes real-time updates from When I Work.</li>
+        <li><strong>Integration Database</strong>: Stores mapping data and synchronization state.</li>
+      </ul>
+
+      <h3>Data Flow Visualizations</h3>
+      <div class="diagram-container">
+        <h3 class="diagram-title">Shift Synchronization Flow</h3>
+        <img src="assets/shift_sync_flow.png" alt="Shift Synchronization Data Flow">
+      </div>
+
+      <div class="diagram-container">
+        <h3 class="diagram-title">Employee Data Synchronization Flow</h3>
+        <img src="assets/employee_sync_flow.png" alt="Employee Data Synchronization Flow">
+      </div>
+
+      <div class="diagram-container">
+        <h3 class="diagram-title">Time-Off Request Propagation Flow</h3>
+        <img src="assets/timeoff_sync_flow.png" alt="Time-Off Request Propagation Flow">
+      </div>
+
+      <div class="diagram-container">
+        <h3 class="diagram-title">Timesheet Approval Workflow</h3>
+        <img src="assets/timesheet_approval_flow.png" alt="Timesheet Approval Workflow">
+      </div>
+
+      <div class="diagram-container">
+        <h3 class="diagram-title">Payroll Processing Workflow</h3>
+        <img src="assets/payroll_processing_flow.png" alt="Payroll Processing Workflow">
+      </div>
+    </div>
+  </section>
+
+  <section id="authentication">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Authentication</h2>
+        <p class="section-description">Learn how to authenticate with both When I Work and Paylocity APIs securely.</p>
+      </div>
+
+      <h3>When I Work Authentication</h3>
+      <p>When I Work uses a token-based authentication system. You'll need to provide your client credentials and user credentials to obtain an access token.</p>
+
+      <pre data-title="when_i_work_auth.js"><code class="language-javascript">
+// When I Work Authentication Example
+const axios = require('axios');
+
+// Configuration
+const config = {
+  // When I Work API credentials
+  clientId: 'YOUR_CLIENT_ID',
+  clientSecret: 'YOUR_CLIENT_SECRET',
+  username: 'YOUR_USERNAME',
+  password: 'YOUR_PASSWORD',
+  
+  // API endpoints
+  tokenUrl: 'https://api.wheniwork.com/2/login',
+  apiBaseUrl: 'https://api.wheniwork.com/2'
+};
+
+/**
+ * Authenticate with When I Work API and get access token
+ * @returns {Promise<string>} Access token
+ */
+async function authenticateWithWhenIWork() {
+  try {
+    console.log('Authenticating with When I Work API...');
+    
+    // Prepare request payload
+    const payload = {
+      username: config.username,
+      password: config.password,
+      client_id: config.clientId,
+      client_secret: config.clientSecret,
+      grant_type: 'password'
+    };
+    
+    // Make authentication request
+    const response = await axios.post(config.tokenUrl, payload);
+    
+    // Extract token from response
+    const token = response.data.token;
+    console.log('Authentication successful!');
+    
+    return token;
+  } catch (error) {
+    console.error('Authentication failed:', error.response?.data || error.message);
+    throw new Error('Failed to authenticate with When I Work API');
+  }
+}
+      </code></pre>
+
+      <h3>Paylocity Authentication</h3>
+      <p>Paylocity uses OAuth 2.0 for authentication. You'll need to use the client credentials flow to obtain an access token.</p>
+
+      <pre data-title="paylocity_auth.js"><code class="language-javascript">
+// Paylocity Authentication Example
+const axios = require('axios');
+const qs = require('querystring');
+
+// Configuration
+const config = {
+  // Paylocity API credentials
+  clientId: 'YOUR_CLIENT_ID',
+  clientSecret: 'YOUR_CLIENT_SECRET',
+  
+  // API endpoints
+  tokenUrl: 'https://api.paylocity.com/IdentityServer/connect/token',
+  apiBaseUrl: 'https://api.paylocity.com/api'
+};
+
+/**
+ * Authenticate with Paylocity API and get access token
+ * @returns {Promise<string>} Access token
+ */
+async function authenticateWithPaylocity() {
+  try {
+    console.log('Authenticating with Paylocity API...');
+    
+    // Prepare request payload
+    const payload = qs.stringify({
+      grant_type: 'client_credentials',
+      client_id: config.clientId,
+      client_secret: config.clientSecret,
+      scope: 'WebLinkAPI'
+    });
+    
+    // Make authentication request
+    const response = await axios.post(config.tokenUrl, payload, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    });
+    
+    // Extract token from response
+    const token = response.data.access_token;
+    console.log('Authentication successful!');
+    
+    return token;
+  } catch (error) {
+    console.error('Authentication failed:', error.response?.data || error.message);
+    throw new Error('Failed to authenticate with Paylocity API');
+  }
+}
+      </code></pre>
+
+      <h3>Combined Authentication Service</h3>
+      <p>For a production integration, you'll want to create a service that manages authentication for both APIs.</p>
+
+      <pre data-title="integration_auth.js"><code class="language-javascript">
+// Combined Authentication Service
+class AuthenticationService {
+  constructor() {
+    this.tokens = {
+      whenIWork: null,
+      paylocity: null
+    };
+  }
+
+  /**
+   * Authenticate with When I Work API
+   * @returns {Promise<string>} Access token
+   */
+  async getWhenIWorkToken() {
+    // Return existing token if available
+    if (this.tokens.whenIWork) {
+      return this.tokens.whenIWork;
+    }
+
+    try {
+      console.log('Authenticating with When I Work API...');
+      
+      // Prepare request payload
+      const payload = {
+        username: config.whenIWork.username,
+        password: config.whenIWork.password,
+        client_id: config.whenIWork.clientId,
+        client_secret: config.whenIWork.clientSecret,
+        grant_type: 'password'
+      };
+      
+      // Make authentication request
+      const response = await axios.post(config.whenIWork.tokenUrl, payload);
+      
+      // Extract and store token
+      this.tokens.whenIWork = response.data.token;
+      console.log('When I Work authentication successful!');
+      
+      return this.tokens.whenIWork;
+    } catch (error) {
+      console.error('When I Work authentication failed:', error.response?.data || error.message);
+      throw new Error('Failed to authenticate with When I Work API');
+    }
+  }
+
+  /**
+   * Authenticate with Paylocity API
+   * @returns {Promise<string>} Access token
+   */
+  async getPaylocityToken() {
+    // Return existing token if available
+    if (this.tokens.paylocity) {
+      return this.tokens.paylocity;
+    }
+
+    try {
+      console.log('Authenticating with Paylocity API...');
+      
+      // Prepare request payload
+      const payload = qs.stringify({
+        grant_type: 'client_credentials',
+        client_id: config.paylocity.clientId,
+        client_secret: config.paylocity.clientSecret,
+        scope: 'WebLinkAPI'
+      });
+      
+      // Make authentication request
+      const response = await axios.post(config.paylocity.tokenUrl, payload, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      });
+      
+      // Extract and store token
+      this.tokens.paylocity = response.data.access_token;
+      console.log('Paylocity authentication successful!');
+      
+      return this.tokens.paylocity;
+    } catch (error) {
+      console.error('Paylocity authentication failed:', error.response?.data || error.message);
+      throw new Error('Failed to authenticate with Paylocity API');
+    }
+  }
+}
+      </code></pre>
+    </div>
+  </section>
+
+  <section id="integration">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Integration Examples</h2>
+        <p class="section-description">Practical code examples for integrating When I Work with Paylocity.</p>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <h3 class="tutorial-step-title">Shift Synchronization</h3>
+          <p class="tutorial-step-description">Automatically sync shifts from When I Work to Paylocity timesheet entries.</p>
+          
+          <div class="diagram-container">
+            <img src="assets/shift_sync_flow.png" alt="Shift Synchronization Data Flow">
+          </div>
+          
+          <div class="tutorial-step-content">
+            <pre data-title="shift_sync.js"><code class="language-javascript">
+// Shift Synchronization Example
+class ShiftSyncService {
+  constructor() {
+    this.apiClient = new IntegrationApiClient();
+    this.employeeMap = {}; // Maps When I Work user IDs to Paylocity employee IDs
+  }
+
+  /**
+   * Get shifts from When I Work within a date range
+   * @param {string} startDate - Start date in YYYY-MM-DD format
+   * @param {string} endDate - End date in YYYY-MM-DD format
+   * @returns {Promise<Array>} List of shifts
+   */
+  async getShiftsFromWhenIWork(startDate, endDate) {
+    try {
+      console.log(`Fetching shifts from When I Work (${startDate} to ${endDate})...`);
+      
+      // Call When I Work API to get shifts
+      const shifts = await this.apiClient.callWhenIWorkApi(
+        `/shifts?start=${startDate}&end=${endDate}`
+      );
+      
+      console.log(`Retrieved ${shifts.shifts.length} shifts from When I Work`);
+      return shifts.shifts;
+    } catch (error) {
+      console.error('Failed to get shifts from When I Work:', error.message);
+      throw new Error('Shift retrieval failed');
+    }
+  }
+
+  /**
+   * Transform When I Work shifts to Paylocity timesheet format
+   * @param {Array} shifts - List of When I Work shifts
+   * @returns {Array} Transformed timesheet entries for Paylocity
+   */
+  transformShiftsToTimesheetEntries(shifts) {
+    console.log('Transforming shifts to Paylocity timesheet format...');
+    
+    const timesheetEntries = [];
+    
+    for (const shift of shifts) {
+      // Skip shifts for employees not in our mapping
+      if (!this.employeeMap[shift.user_id]) {
+        console.log(`Skipping shift for unmapped employee (When I Work ID: ${shift.user_id})`);
+        continue;
+      }
+      
+      // Calculate shift duration in hours
+      const startTime = new Date(shift.start_time);
+      const endTime = new Date(shift.end_time);
+      const durationHours = (endTime - startTime) / (1000 * 60 * 60);
+      
+      // Create timesheet entry for Paylocity
+      const timesheetEntry = {
+        employeeId: this.employeeMap[shift.user_id],
+        workDate: startTime.toISOString().split('T')[0], // YYYY-MM-DD
+        hoursWorked: durationHours.toFixed(2),
+        payCode: shift.is_overtime ? 'OT' : 'REG', // Regular or Overtime
+        departmentPosition: shift.position_id || 'DEFAULT',
+        jobCode: shift.site_id || 'MAIN',
+        notes: `Shift ID: ${shift.id}`
+      };
+      
+      timesheetEntries.push(timesheetEntry);
+    }
+    
+    console.log(`Transformed ${timesheetEntries.length} timesheet entries`);
+    return timesheetEntries;
+  }
+
+  /**
+   * Send timesheet entries to Paylocity
+   * @param {Array} timesheetEntries - List of timesheet entries
+   * @param {string} companyId - Paylocity company ID
+   * @returns {Promise<object>} Result of the operation
+   */
+  async sendTimesheetEntriesToPaylocity(timesheetEntries, companyId) {
+    try {
+      console.log(`Sending ${timesheetEntries.length} timesheet entries to Paylocity...`);
+      
+      // Group entries by employee for batch processing
+      const entriesByEmployee = {};
+      
+      for (const entry of timesheetEntries) {
+        if (!entriesByEmployee[entry.employeeId]) {
+          entriesByEmployee[entry.employeeId] = [];
+        }
+        entriesByEmployee[entry.employeeId].push(entry);
+      }
+      
+      // Process each employee's entries
+      const results = [];
+      
+      for (const employeeId in entriesByEmployee) {
+        const entries = entriesByEmployee[employeeId];
+        
+        // Call Paylocity API to update timesheet
+        const result = await this.apiClient.callPaylocityApi(
+          `/apiHub/v1/companies/{companyId}/employees/${employeeId}/timeEntries`,
+          'POST',
+          { timeEntries: entries }
+        );
+        
+        results.push({
+          employeeId,
+          entriesCount: entries.length,
+          status: 'success',
+          result
+        });
+      }
+      
+      console.log('Successfully sent timesheet entries to Paylocity');
+      return {
+        totalEmployees: Object.keys(entriesByEmployee).length,
+        totalEntries: timesheetEntries.length,
+        results
+      };
+    } catch (error) {
+      console.error('Failed to send timesheet entries to Paylocity:', error.message);
+      throw new Error('Timesheet submission failed');
+    }
+  }
+}
+            </code></pre>
+          </div>
+        </div>
+
+        <div class="tutorial-step">
+          <h3 class="tutorial-step-title">Employee Data Synchronization</h3>
+          <p class="tutorial-step-description">Keep employee records consistent across both systems with bidirectional synchronization.</p>
+          
+          <div class="diagram-container">
+            <img src="assets/employee_sync_flow.png" alt="Employee Data Synchronization Flow">
+          </div>
+          
+          <div class="tutorial-step-content">
+            <pre data-title="employee_sync.js"><code class="language-javascript">
+// Employee Data Synchronization Example
+class EmployeeSyncService {
+  constructor() {
+    this.apiClient = new IntegrationApiClient();
+    this.employeeMap = {}; // Maps When I Work user IDs to Paylocity employee IDs
+  }
+
+  /**
+   * Get employees from When I Work
+   * @returns {Promise<Array>} List of employees
+   */
+  async getEmployeesFromWhenIWork() {
+    try {
+      console.log('Fetching employees from When I Work...');
+      
+      // Call When I Work API to get users (employees)
+      const response = await this.apiClient.callWhenIWorkApi('/users');
+      
+      console.log(`Retrieved ${response.users.length} employees from When I Work`);
+      return response.users;
+    } catch (error) {
+      console.error('Failed to get employees from When I Work:', error.message);
+      throw new Error('Employee retrieval failed');
+    }
+  }
+
+  /**
+   * Transform When I Work employee data to Paylocity format
+   * @param {object} wiwEmployee - When I Work employee data
+   * @returns {object} Transformed employee data for Paylocity
+   */
+  transformEmployeeData(wiwEmployee) {
+    console.log(`Transforming employee data for ${wiwEmployee.first_name} ${wiwEmployee.last_name}...`);
+    
+    // Extract name components
+    const firstName = wiwEmployee.first_name;
+    const lastName = wiwEmployee.last_name;
+    
+    // Map When I Work employee type to Paylocity employee type
+    let employeeType = 'RFT'; // Regular Full Time (default)
+    if (wiwEmployee.employee_type === 'part-time') {
+      employeeType = 'RPT'; // Regular Part Time
+    } else if (wiwEmployee.employee_type === 'contractor') {
+      employeeType = 'CNT'; // Contractor
+    }
+    
+    // Create Paylocity employee data
+    const paylocityEmployee = {
+      firstName,
+      lastName,
+      employeeId: this.employeeMap[wiwEmployee.id] || `NEW${wiwEmployee.id}`, // Use existing mapping or create new ID
+      employeeType,
+      email: wiwEmployee.email,
+      phone: wiwEmployee.phone_number,
+      address: {
+        address1: wiwEmployee.address || '',
+        city: wiwEmployee.city || '',
+        state: wiwEmployee.state || '',
+        zipCode: wiwEmployee.zip || ''
+      },
+      departmentPosition: wiwEmployee.position_id || 'DEFAULT',
+      status: wiwEmployee.is_active ? 'A' : 'T', // Active or Terminated
+      hireDate: wiwEmployee.hire_date || new Date().toISOString().split('T')[0] // Use hire date or today
+    };
+    
+    return paylocityEmployee;
+  }
+
+  /**
+   * Update or create employee in Paylocity
+   * @param {object} employeeData - Employee data in Paylocity format
+   * @param {string} companyId - Paylocity company ID
+   * @returns {Promise<object>} Result of the operation
+   */
+  async updateEmployeeInPaylocity(employeeData, companyId) {
+    try {
+      const employeeId = employeeData.employeeId;
+      
+      // Check if employee exists in Paylocity
+      const existingEmployee = await this.getEmployeeFromPaylocity(employeeId, companyId);
+      
+      if (existingEmployee) {
+        console.log(`Updating existing employee ${employeeId} in Paylocity...`);
+        
+        // Call Paylocity API to update employee
+        const result = await this.apiClient.callPaylocityApi(
+          `/apiHub/v1/companies/{companyId}/employees/${employeeId}`,
+          'PUT',
+          employeeData
+        );
+        
+        return {
+          employeeId,
+          action: 'updated',
+          status: 'success',
+          result
+        };
+      } else {
+        console.log(`Creating new employee ${employeeId} in Paylocity...`);
+        
+        // Call Paylocity API to create employee
+        const result = await this.apiClient.callPaylocityApi(
+          `/apiHub/v1/companies/{companyId}/employees`,
+          'POST',
+          employeeData
+        );
+        
+        // Update our mapping with the new employee
+        if (!this.employeeMap[employeeData.wiwUserId]) {
+          this.employeeMap[employeeData.wiwUserId] = employeeId;
+          console.log(`Added new mapping: WIW ID ${employeeData.wiwUserId} -> Paylocity ID ${employeeId}`);
+        }
+        
+        return {
+          employeeId,
+          action: 'created',
+          status: 'success',
+          result
+        };
+      }
+    } catch (error) {
+      console.error(`Failed to update/create employee ${employeeData.employeeId} in Paylocity:`, error.message);
+      return {
+        employeeId: employeeData.employeeId,
+        action: 'failed',
+        status: 'error',
+        error: error.message
+      };
+    }
+  }
+}
+            </code></pre>
+          </div>
+        </div>
+
+        <div class="tutorial-step">
+          <h3 class="tutorial-step-title">Time-Off Request Propagation</h3>
+          <p class="tutorial-step-description">Automatically propagate approved time-off requests from When I Work to Paylocity.</p>
+          
+          <div class="diagram-container">
+            <img src="assets/timeoff_sync_flow.png" alt="Time-Off Request Propagation Flow">
+          </div>
+          
+          <div class="tutorial-step-content">
+            <pre data-title="timeoff_sync.js"><code class="language-javascript">
+// Time-Off Request Propagation Example
+class TimeOffSyncService {
+  constructor() {
+    this.apiClient = new IntegrationApiClient();
+    this.employeeMap = {}; // Maps When I Work user IDs to Paylocity employee IDs
+  }
+
+  /**
+   * Get time-off requests from When I Work within a date range
+   * @param {string} startDate - Start date in YYYY-MM-DD format
+   * @param {string} endDate - End date in YYYY-MM-DD format
+   * @returns {Promise<Array>} List of time-off requests
+   */
+  async getTimeOffRequestsFromWhenIWork(startDate, endDate) {
+    try {
+      console.log(`Fetching time-off requests from When I Work (${startDate} to ${endDate})...`);
+      
+      // Call When I Work API to get time-off requests
+      const response = await this.apiClient.callWhenIWorkApi(
+        `/requests?start=${startDate}&end=${endDate}`
+      );
+      
+      console.log(`Retrieved ${response.requests.length} time-off requests from When I Work`);
+      return response.requests;
+    } catch (error) {
+      console.error('Failed to get time-off requests from When I Work:', error.message);
+      throw new Error('Time-off request retrieval failed');
+    }
+  }
+
+  /**
+   * Map When I Work time-off type to Paylocity time-off code
+   * @param {string} wiwTimeOffType - When I Work time-off type
+   * @returns {string} Paylocity time-off code
+   */
+  mapTimeOffType(wiwTimeOffType) {
+    // Map When I Work time-off types to Paylocity codes
+    const typeMap = {
+      'unpaid': 'UNPD', // Unpaid time off
+      'paid': 'PTO',    // Paid time off
+      'sick': 'SICK',   // Sick leave
+      'vacation': 'VAC', // Vacation
+      'holiday': 'HOL'  // Holiday
+    };
+    
+    return typeMap[wiwTimeOffType.toLowerCase()] || 'PTO'; // Default to PTO if type not found
+  }
+
+  /**
+   * Transform When I Work time-off requests to Paylocity format
+   * @param {Array} timeOffRequests - List of When I Work time-off requests
+   * @returns {Array} Transformed time-off requests for Paylocity
+   */
+  transformTimeOffRequests(timeOffRequests) {
+    console.log('Transforming time-off requests to Paylocity format...');
+    
+    const paylocityRequests = [];
+    
+    for (const request of timeOffRequests) {
+      // Skip requests for employees not in our mapping
+      if (!this.employeeMap[request.user_id]) {
+        console.log(`Skipping request for unmapped employee (When I Work ID: ${request.user_id})`);
+        continue;
+      }
+      
+      // Skip requests that aren't approved
+      if (request.status !== 'approved') {
+        console.log(`Skipping non-approved request (ID: ${request.id}, Status: ${request.status})`);
+        continue;
+      }
+      
+      // Calculate hours per day (assuming 8-hour days if not specified)
+      const hoursPerDay = request.hours_per_day || 8;
+      
+      // Parse start and end dates
+      const startDate = new Date(request.start_date);
+      const endDate = new Date(request.end_date);
+      
+      // Calculate number of days
+      const dayDiff = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+      
+      // Create Paylocity time-off request
+      const paylocityRequest = {
+        employeeId: this.employeeMap[request.user_id],
+        startDate: request.start_date,
+        endDate: request.end_date,
+        payCode: this.mapTimeOffType(request.type),
+        hoursPerDay: hoursPerDay,
+        totalHours: hoursPerDay * dayDiff,
+        totalDays: dayDiff,
+        notes: request.description || `Time off request from When I Work (ID: ${request.id})`,
+        status: 'A', // Approved
+        requestId: `WIW-${request.id}` // Reference to original When I Work request ID
+      };
+      
+      paylocityRequests.push(paylocityRequest);
+    }
+    
+    console.log(`Transformed ${paylocityRequests.length} time-off requests`);
+    return paylocityRequests;
+  }
+}
+            </code></pre>
+          </div>
+        </div>
+
+        <div class="tutorial-step">
+          <h3 class="tutorial-step-title">Timesheet Approval Workflow</h3>
+          <p class="tutorial-step-description">Implement approval workflows that ensure only verified timesheets are processed for payroll.</p>
+          
+          <div class="diagram-container">
+            <img src="assets/timesheet_approval_flow.png" alt="Timesheet Approval Workflow">
+          </div>
+          
+          <div class="tutorial-step-content">
+            <pre data-title="timesheet_approval.js"><code class="language-javascript">
+// Timesheet Approval Workflow Example
+class TimesheetApprovalService {
+  constructor() {
+    this.apiClient = new IntegrationApiClient();
+    this.employeeMap = {}; // Maps When I Work user IDs to Paylocity employee IDs
+  }
+
+  /**
+   * Get timesheets from When I Work within a date range
+   * @param {string} startDate - Start date in YYYY-MM-DD format
+   * @param {string} endDate - End date in YYYY-MM-DD format
+   * @returns {Promise<Array>} List of timesheets
+   */
+  async getTimesheetsFromWhenIWork(startDate, endDate) {
+    try {
+      console.log(`Fetching timesheets from When I Work (${startDate} to ${endDate})...`);
+      
+      // Call When I Work API to get times (timesheets)
+      const response = await this.apiClient.callWhenIWorkApi(
+        `/times?start=${startDate}&end=${endDate}`
+      );
+      
+      console.log(`Retrieved ${response.times.length} timesheets from When I Work`);
+      return response.times;
+    } catch (error) {
+      console.error('Failed to get timesheets from When I Work:', error.message);
+      throw new Error('Timesheet retrieval failed');
+    }
+  }
+
+  /**
+   * Get timesheet approval status from When I Work
+   * @param {Array} timesheets - List of When I Work timesheets
+   * @returns {Promise<Array>} List of timesheets with approval status
+   */
+  async getTimesheetApprovalStatus(timesheets) {
+    try {
+      console.log('Getting timesheet approval status...');
+      
+      // Group timesheets by user for efficient processing
+      const timesheetsByUser = {};
+      
+      for (const timesheet of timesheets) {
+        if (!timesheetsByUser[timesheet.user_id]) {
+          timesheetsByUser[timesheet.user_id] = [];
+        }
+        timesheetsByUser[timesheet.user_id].push(timesheet);
+      }
+      
+      // Process each user's timesheets
+      const approvalResults = [];
+      
+      for (const userId in timesheetsByUser) {
+        const userTimesheets = timesheetsByUser[userId];
+        
+        // Call When I Work API to get user's timesheet approvals
+        // Note: This is a simulated endpoint for this example
+        const response = await this.apiClient.callWhenIWorkApi(
+          `/times/approvals?user_id=${userId}`
+        );
+        
+        // Map approval status to each timesheet
+        for (const timesheet of userTimesheets) {
+          const approval = response.approvals.find(a => a.time_id === timesheet.id);
+          
+          approvalResults.push({
+            ...timesheet,
+            approval_status: approval ? approval.status : 'pending',
+            approved_by: approval ? approval.manager_id : null,
+            approved_at: approval ? approval.approved_at : null
+          });
+        }
+      }
+      
+      console.log(`Processed approval status for ${approvalResults.length} timesheets`);
+      return approvalResults;
+    } catch (error) {
+      console.error('Failed to get timesheet approval status:', error.message);
+      throw new Error('Timesheet approval status retrieval failed');
+    }
+  }
+}
+            </code></pre>
+          </div>
+        </div>
+
+        <div class="tutorial-step">
+          <h3 class="tutorial-step-title">Payroll Processing</h3>
+          <p class="tutorial-step-description">Use scheduling data to streamline payroll processing and ensure accurate compensation.</p>
+          
+          <div class="diagram-container">
+            <img src="assets/payroll_processing_flow.png" alt="Payroll Processing Workflow">
+          </div>
+          
+          <div class="tutorial-step-content">
+            <pre data-title="payroll_processing.js"><code class="language-javascript">
+// Payroll Processing Example
+class PayrollProcessingService {
+  constructor() {
+    this.apiClient = new IntegrationApiClient();
+    this.employeeMap = {}; // Maps When I Work user IDs to Paylocity employee IDs
+  }
+
+  /**
+   * Get payroll period data from Paylocity
+   * @param {string} companyId - Paylocity company ID
+   * @returns {Promise<object>} Payroll period information
+   */
+  async getPayrollPeriodFromPaylocity(companyId) {
+    try {
+      console.log('Fetching current payroll period from Paylocity...');
+      
+      // Call Paylocity API to get current payroll period
+      const response = await this.apiClient.callPaylocityApi(
+        `/apiHub/payroll/v1/companies/{companyId}/payrollPeriods?current=true`
+      );
+      
+      const currentPeriod = response.payrollPeriods[0];
+      console.log(`Retrieved current payroll period: ${currentPeriod.startDate} to ${currentPeriod.endDate}`);
+      
+      return currentPeriod;
+    } catch (error) {
+      console.error('Failed to get payroll period from Paylocity:', error.message);
+      throw new Error('Payroll period retrieval failed');
+    }
+  }
+
+  /**
+   * Get timesheet data from When I Work for the payroll period
+   * @param {string} startDate - Start date in YYYY-MM-DD format
+   * @param {string} endDate - End date in YYYY-MM-DD format
+   * @returns {Promise<object>} Timesheet data grouped by employee
+   */
+  async getTimesheetDataFromWhenIWork(startDate, endDate) {
+    try {
+      console.log(`Fetching timesheet data from When I Work (${startDate} to ${endDate})...`);
+      
+      // Call When I Work API to get times (timesheets)
+      const response = await this.apiClient.callWhenIWorkApi(
+        `/times?start=${startDate}&end=${endDate}&verified=true`
+      );
+      
+      // Group timesheet data by employee
+      const timesheetsByEmployee = {};
+      
+      for (const timesheet of response.times) {
+        if (!timesheetsByEmployee[timesheet.user_id]) {
+          timesheetsByEmployee[timesheet.user_id] = [];
+        }
+        timesheetsByEmployee[timesheet.user_id].push(timesheet);
+      }
+      
+      console.log(`Retrieved timesheet data for ${Object.keys(timesheetsByEmployee).length} employees`);
+      return timesheetsByEmployee;
+    } catch (error) {
+      console.error('Failed to get timesheet data from When I Work:', error.message);
+      throw new Error('Timesheet data retrieval failed');
+    }
+  }
+
+  /**
+   * Calculate payroll data from timesheet entries
+   * @param {object} timesheetsByEmployee - Timesheet data grouped by employee
+   * @returns {Array} Calculated payroll data for each employee
+   */
+  calculatePayrollData(timesheetsByEmployee) {
+    console.log('Calculating payroll data from timesheet entries...');
+    
+    const payrollData = [];
+    
+    for (const wiwUserId in timesheetsByEmployee) {
+      // Skip employees not in our mapping
+      if (!this.employeeMap[wiwUserId]) {
+        console.log(`Skipping unmapped employee (When I Work ID: ${wiwUserId})`);
+        continue;
+      }
+      
+      const timesheets = timesheetsByEmployee[wiwUserId];
+      
+      // Initialize counters
+      let regularHours = 0;
+      let overtimeHours = 0;
+      let totalHours = 0;
+      
+      // Process each timesheet entry
+      for (const timesheet of timesheets) {
+        // Calculate hours for this entry
+        const startTime = new Date(timesheet.start_time);
+        const endTime = new Date(timesheet.end_time);
+        const hours = (endTime - startTime) / (1000 * 60 * 60);
+        
+        // Add to appropriate counter
+        if (timesheet.is_overtime) {
+          overtimeHours += hours;
+        } else {
+          regularHours += hours;
+        }
+        
+        totalHours += hours;
+      }
+      
+      // Create payroll data entry for this employee
+      payrollData.push({
+        wiwUserId,
+        paylocityEmployeeId: this.employeeMap[wiwUserId],
+        regularHours: regularHours.toFixed(2),
+        overtimeHours: overtimeHours.toFixed(2),
+        totalHours: totalHours.toFixed(2),
+        timesheetCount: timesheets.length
+      });
+    }
+    
+    console.log(`Calculated payroll data for ${payrollData.length} employees`);
+    return payrollData;
+  }
+}
+            </code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="business-value" class="business-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Business Value</h2>
+        <p class="section-description">Understand the tangible benefits of integrating When I Work with Paylocity.</p>
+      </div>
+
+      <div class="value-item">
+        <h3 class="value-title">Eliminate Duplicate Data Entry</h3>
+        <p class="value-description">Manual data entry between scheduling and payroll systems is time-consuming and error-prone. By automating the transfer of data between When I Work and Paylocity, you can eliminate duplicate data entry entirely.</p>
+        
+        <div class="value-metrics">
+          <div class="metric">
+            <div class="metric-value">85%</div>
+            <div class="metric-label">Reduction in manual data entry</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">5-10</div>
+            <div class="metric-label">Hours saved per pay period</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">99.8%</div>
+            <div class="metric-label">Data accuracy rate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <h3 class="value-title">Reduce Payroll Errors</h3>
+        <p class="value-description">Payroll errors can be costly, both in terms of employee satisfaction and financial impact. Integration ensures that accurate scheduling data flows directly into payroll processing, significantly reducing errors.</p>
+        
+        <div class="value-metrics">
+          <div class="metric">
+            <div class="metric-value">92%</div>
+            <div class="metric-label">Reduction in payroll errors</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">3.5x</div>
+            <div class="metric-label">Faster error resolution</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$1,200</div>
+            <div class="metric-label">Average savings per error</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <h3 class="value-title">Streamline Compliance Reporting</h3>
+        <p class="value-description">Maintaining compliance with labor laws and regulations requires accurate record-keeping. Integration ensures consistent data across systems, making compliance reporting more reliable and efficient.</p>
+        
+        <div class="value-metrics">
+          <div class="metric">
+            <div class="metric-value">75%</div>
+            <div class="metric-label">Reduction in compliance reporting time</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Data consistency across systems</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">40%</div>
+            <div class="metric-label">Reduction in audit preparation time</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <h3 class="value-title">Improve Timesheet Accuracy</h3>
+        <p class="value-description">Accurate timesheets are essential for fair compensation and proper labor cost allocation. Integration ensures that approved time records from When I Work are accurately reflected in Paylocity.</p>
+        
+        <div class="value-metrics">
+          <div class="metric">
+            <div class="metric-value">95%</div>
+            <div class="metric-label">Timesheet accuracy rate</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">80%</div>
+            <div class="metric-label">Reduction in timesheet disputes</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">2.5x</div>
+            <div class="metric-label">Faster timesheet approval process</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <h3 class="value-title">Enhance Operational Visibility</h3>
+        <p class="value-description">Integration provides a more complete view of labor costs and scheduling efficiency. This improved visibility enables better decision-making and resource allocation.</p>
+        
+        <div class="value-metrics">
+          <div class="metric">
+            <div class="metric-value">360°</div>
+            <div class="metric-label">View of labor data</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">15%</div>
+            <div class="metric-label">Improvement in labor cost forecasting</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">20%</div>
+            <div class="metric-label">Reduction in scheduling inefficiencies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="implementation">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Implementation Guide</h2>
+        <p class="section-description">Follow these steps to implement the integration between When I Work and Paylocity in your organization.</p>
+      </div>
+
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>Active When I Work account with API access</li>
+        <li>Active Paylocity account with API access</li>
+        <li>Developer credentials for both platforms</li>
+        <li>Node.js environment for running the integration code</li>
+        <li>Basic understanding of JavaScript and REST APIs</li>
+      </ul>
+
+      <h3>Implementation Steps</h3>
+      <ol>
+        <li>Set up API access in both When I Work and Paylocity</li>
+        <li>Create a secure storage for API credentials</li>
+        <li>Implement the authentication service</li>
+        <li>Create employee mapping between the two systems</li>
+        <li>Implement the desired integration services (shift sync, employee sync, etc.)</li>
+        <li>Set up scheduled jobs to run the integration services</li>
+        <li>Implement error handling and notification system</li>
+        <li>Test the integration in a staging environment</li>
+        <li>Deploy to production</li>
+        <li>Monitor and maintain the integration</li>
+      </ol>
+
+      <h3>Best Practices</h3>
+      <ul>
+        <li><strong>Security First:</strong> Store API credentials securely and use HTTPS for all API communications.</li>
+        <li><strong>Idempotent Operations:</strong> Design integration processes to be idempotent to prevent duplicate data.</li>
+        <li><strong>Error Handling:</strong> Implement robust error handling with appropriate logging and notifications.</li>
+        <li><strong>Rate Limiting:</strong> Respect API rate limits to avoid service disruptions.</li>
+        <li><strong>Incremental Approach:</strong> Start with one integration scenario and add more as needed.</li>
+        <li><strong>Monitoring:</strong> Set up monitoring to track the health and performance of the integration.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <span class="wiw">When I Work</span>
+        <span class="plus">+</span>
+        <span class="paylocity">Paylocity</span>
+      </div>
+      <div class="footer-links">
+        <a href="#overview">Overview</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#authentication">Authentication</a>
+        <a href="#integration">Integration</a>
+        <a href="#business-value">Business Value</a>
+        <a href="#implementation">Implementation</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2025 Integration Tutorial. All code examples are provided under the MIT License.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/prism.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
